@@ -8,13 +8,14 @@ import commentImg from '../img/user.jpg';
 
 const BlogDetail = () => {
     const { id } = useParams();
+    const myApiKey = import.meta.env.VITE_API_KEY;
     const [data, setData] = useState([]);
     const getDetails = async () => {
         try{
             const response = await axios.get('https://blogsapi.p.rapidapi.com/', {
                 params:{id : id},
                 headers: {
-                    'X-RapidAPI-Key': 'd2a3f2eb85msh1846beff64b580bp1bece8jsn539e5d595303',
+                    'X-RapidAPI-Key': myApiKey,
                 },
             })
             console.log(response.data.results[0]);

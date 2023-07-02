@@ -10,6 +10,7 @@ import Sidebar from '../components/Sidebar';
 
 const Blog = () => {
     const [datas, setDatas] = useState([]);
+    const myApiKey = import.meta.env.VITE_API_KEY;
     const getDay = (dateString) => {
         const dateObj = new Date(dateString);
         const day = dateObj.getDate();
@@ -34,7 +35,7 @@ const Blog = () => {
         try{
             const response = await axios.get('https://blogsapi.p.rapidapi.com/', {
                 headers: {
-                    'X-RapidAPI-Key': 'd2a3f2eb85msh1846beff64b580bp1bece8jsn539e5d595303',
+                    'X-RapidAPI-Key': myApiKey,
                 },
             })
             console.log(response.data);
